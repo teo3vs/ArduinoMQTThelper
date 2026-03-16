@@ -22,7 +22,7 @@ This small library wraps WiFi + MQTT connection handling so you can focus on you
 - Board: Arduino UNO R4 WiFi
 - Arduino IDE 2.x (or Arduino CLI)
 - Libraries:
-  - `ArduinoMqttClient`
+  - `ArduinoMqttClient` https://github.com/arduino-libraries/ArduinoMqttClient/tree/master/src
   - `WiFiS3`
 
 ## Installation
