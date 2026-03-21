@@ -32,10 +32,10 @@ void setup() {
   mqtt.connectMqtt("myMQTTBroker", 1883); // EDIT HERE (1883 is the default MQTT port)
 
   // Subscribe to the topics you want to receive.
-  mqtt.subscribe("/homeassistant/kitchen/light1/set");
+  mqtt.subscribe("homeassistant/kitchen/light1/set");
 
   // Announce the board is alive.
-  mqtt.send("/homeassistant/kitchen", "board_started");
+  mqtt.send("homeassistant/kitchen", "board_started");
 }
 
 void loop() {
@@ -50,7 +50,7 @@ void loop() {
 
   // Publish output state to MQTT broker only when it changes.
   if (out1 != prev_out1) {
-    mqtt.send("/homeassistant/kitchen/light1/state", out1 ? "ON" : "OFF");
+    mqtt.send("homeassistant/kitchen/light1/state", out1 ? "ON" : "OFF");
   }
 
   writeOutputs();
@@ -61,7 +61,7 @@ void loop() {
 void handleReceivedMessage(const String& topic, const String& payload) {
   // If a message arrives on the topic "/homeassistant/kitchen/light1/set",
   // set the out1 state variable accordingly to the payload.
-  if (topic == "/homeassistant/kitchen/light1/set") {
+  if (topic == "homeassistant/kitchen/light1/set") {
     if (payload == "ON") {
       out1 = true;
     } else if (payload == "OFF") {
