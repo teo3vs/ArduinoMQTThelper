@@ -64,7 +64,7 @@ void handleReceivedMessage(const String& topic, const String& payload) {
   // parse topics, payloads and control outputs. For example:
   if (topic == "homeassistant/kitchen/light1/set") {
     if (payload == "ON") {
-      //turn ON the light
+      //code that turns on the light
     }
   }
 }
