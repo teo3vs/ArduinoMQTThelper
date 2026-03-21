@@ -49,10 +49,10 @@ void setup() {
   mqtt.onMessage(handleReceivedMessage);
 
   mqtt.connectWiFi("your-ssid", "your-password");
-  mqtt.connectMqtt("192.168.1.100", 1883);
+  mqtt.connectMqtt("your-mqtt-server-name-or-IP", 1883); //1883 is the standard MQTT port
 
-  mqtt.subscribe("/homeassistant/kitchen/light1/set");
-  mqtt.send("/homeassistant/kitchen", "board_started");
+  mqtt.subscribe("homeassistant/kitchen/light1/set");
+  mqtt.send("homeassistant/kitchen", "board_started");
 }
 
 void loop() {
@@ -61,7 +61,7 @@ void loop() {
 }
 
 void handleReceivedMessage(const String& topic, const String& payload) {
-  if (topic == "/homeassistant/kitchen/light1/set") {
+  if (topic == "homeassistant/kitchen/light1/set") {
     // parse payload and control outputs
   }
 }
@@ -106,8 +106,8 @@ Default topics used in the example:
 light:
   - platform: mqtt
     name: "Kitchen Light 1"
-    command_topic: "/homeassistant/kitchen/light1/set"
-    state_topic: "/homeassistant/kitchen/light1/state"
+    command_topic: "homeassistant/kitchen/light1/set"
+    state_topic: "homeassistant/kitchen/light1/state"
     payload_on: "ON"
     payload_off: "OFF"
 ```
