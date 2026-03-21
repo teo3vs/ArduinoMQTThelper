@@ -100,8 +100,8 @@ The example `arduino_sketch_mqtt_example.ino` shows:
 - receive commands from MQTT (`.../set`)
 
 Default topics used in the example:
-- subscribe: `/homeassistant/kitchen/light1/set`
-- publish: `/homeassistant/kitchen/light1/state`
+- subscribe: `homeassistant/kitchen/light1/set`
+- publish: `homeassistant/kitchen/light1/state`
 
 ## Home Assistant MQTT Light Example
 
